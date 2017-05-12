@@ -32,12 +32,12 @@ void PhilosopherMonitor::getTwoForks(unsigned philosopherId)
 void PhilosopherMonitor::putTwoForks(unsigned philosopherId)
 {
     unsigned leftPhilosopherId  = EUCMOD(int(philosopherId) - 1, numberOfPhilosophers_);
-    unsigned rightPhilosopherId = EUCMOD(philosopherId + 1, numberOfPhilosophers_);
+    unsigned rightPhilosopherId = (philosopherId + 1) % numberOfPhilosophers_;
 
     unsigned leftForkIdLeftPhilosopher = EUCMOD(int(philosopherId) - 1, numberOfPhilosophers_);
     unsigned leftForkId  = EUCMOD(int(philosopherId) - 1, numberOfPhilosophers_);
     unsigned rightForkId = philosopherId;
-    unsigned rightForkIdRightPhilosopher = EUCMOD(philosopherId + 1, numberOfPhilosophers_);
+    unsigned rightForkIdRightPhilosopher = (philosopherId + 1) % numberOfPhilosophers_;
 
     forksMutex.lock();
     forks[leftForkId]  = 0;

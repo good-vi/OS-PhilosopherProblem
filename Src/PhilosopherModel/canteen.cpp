@@ -18,7 +18,6 @@ Canteen::Canteen(unsigned numOfPhilosophers, unsigned long eatingTime_sec, unsig
 
 Canteen::~Canteen()
 {
-    stopAllPhilosophers();
 }
 
 void Canteen::setForkStatus(unsigned forkId, bool newForkStatus)
